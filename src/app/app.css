@@ -1,7 +1,9 @@
+
+
 .hero-container {
 
 
-    background: linear-gradient(to bottom, #ebe4cb, #aea684);
+    background: linear-gradient(to bottom, #ebe4cb, #fdfaea);
     position: fixed;
     top: 0;
     left: 0;
@@ -16,6 +18,7 @@ body {
   background-color: #cec6aa;
   margin: 0;
   padding: 0;
+  font-family: 'Courier New', sans-serif;
 }
 
 .floating-image {
@@ -48,10 +51,10 @@ body {
     justify-content: center;
     padding-top: 20vh;
     color: #000000;
-    font-family: 'Arial', sans-serif;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    font-family: 'Courier New', sans-serif;
 }
 
 .subheader {
@@ -62,9 +65,22 @@ body {
     align-items: center;
     justify-content: center;
     color: #000000;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Courier New', sans-serif;
     font-size: 16px;
     text-align: center;
+}
+
+.footer {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', sans-serif;
 }
 
 .button {
@@ -86,10 +102,14 @@ body {
     cursor: pointer;
     transition: transform 0.2s;
     font-size: 14px;
+    font-family: 'Courier New', sans-serif;
   }
+
+
   
   .button button:hover {
     transform: scale(1.05);
+    background-color: #e3ca7d;
   }
   
   .details {
