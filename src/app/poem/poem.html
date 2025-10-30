@@ -1,1 +1,16 @@
-<p>poem works!</p>
+<div *ngIf="loading">Loading poem...</div>
+
+<div *ngIf="!loading && poem" class="poem-container">
+  <h2>{{ poem.title }}</h2>
+  <p class="author">by {{ poem.author }}</p>
+  
+  <div class="poem-lines">
+    <p *ngFor="let line of poem.lines">{{ line }}</p>
+  </div>
+  
+  <button (click)="getRandomPoemByAuthor()">Get Another Poem</button>
+</div>
+
+<div *ngIf="!loading && !poem">
+  <p>Error, check the console for more information.</p>
+</div>
