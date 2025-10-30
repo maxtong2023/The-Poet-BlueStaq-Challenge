@@ -1,0 +1,26 @@
+<div class="hero-container">
+  <div *ngFor="let img of images" 
+       class="floating-image"
+       [style.left]="img.x"
+       [style.top]="img.y"
+       [style.animation-delay]="img.delay + 's'">
+    <div class="image-box" [style.transform]="'rotate(' + img.rotation + 'deg)'">
+      <img [src]="img.src" alt="Decorative">
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <h1>Poetdle</h1>
+</div>
+
+<div class = "subheader">
+  <p>Like Wordle, but for guessing the poet.</p>
+</div>
+
+<div class = "button">
+  <button (click)="onClickPlay()">Play Unlimited</button>
+</div>
+<div class = "footer">
+  <p>Max Tong | Bluestaq | 2025</p>
+</div>
