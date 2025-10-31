@@ -16,5 +16,9 @@ export class Poetry {
     const encoded = encodeURIComponent(author);
     return this.http.get<any[]>(`${this.apiURL}/author/${encoded}`);
   }
+
+  getAllAuthors(): Observable<{authors: string[]}> {
+    return this.http.get<{authors: string[]}>(`${this.apiURL}/author`);
+  }
   
 }

@@ -12,28 +12,31 @@ import { CommonModule } from '@angular/common';
 export class Poem implements OnInit { 
   poem: any = null; 
   loading = true;
+  authors: string[] = [];
 
   constructor(private poetry: Poetry) {}
 
   ngOnInit() {
-    this.poetry.getRandomPoemByAuthor('Emily Dickinson').subscribe({
+    this.poetry.getAllAuthors().subscribe({
       next: (data) => {
-        if (data && data.length > 0) {
-          const randomIndex = Math.floor(Math.random() * data.length);
-          this.poem = data[randomIndex];
-        }
-        this.loading = false;
+        this.authors = data.authors; // i need to populate the authors first or else the api will error
+        this.getRandomPoemByAuthor(); 
       },
       error: (error) => {
-        console.error('API Error:', error);
+        console.error('Error fetching authors:', error);
         this.loading = false;
       }
     });
   }
 
+  getRandomAuthor(): string {
+    const random = Math.floor(Math.random() * this.authors.length);
+    return this.authors[random];
+  }
+
   getRandomPoemByAuthor() {
     this.loading = true;
-    this.poetry.getRandomPoemByAuthor('Emily Dickinson').subscribe({
+    this.poetry.getRandomPoemByAuthor(this.getRandomAuthor()).subscribe({
       next: (data) => {
         if (data && data.length > 0) {
           const randomIndex = Math.floor(Math.random() * data.length);
