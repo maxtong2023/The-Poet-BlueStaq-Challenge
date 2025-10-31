@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Poetry } from '../services/poetry';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-poem',
@@ -17,7 +18,7 @@ export class Poem implements OnInit {
   userInput: string = '';
   author: string = '';
 
-  constructor(private poetry: Poetry) {}
+  constructor(private poetry: Poetry, private router: Router) {}
 
   ngOnInit() {
     this.poetry.getAllAuthors().subscribe({
@@ -30,6 +31,10 @@ export class Poem implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  goBack(){
+    this.router.navigate(['/home']);
   }
 
   getRandomAuthor(): string {
