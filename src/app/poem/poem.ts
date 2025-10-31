@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Poetry } from '../services/poetry';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-poem',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './poem.html',
   styleUrl: './poem.css',
 })
@@ -13,6 +14,8 @@ export class Poem implements OnInit {
   poem: any = null; 
   loading = true;
   authors: string[] = [];
+  userInput: string = '';
+  author: string = '';
 
   constructor(private poetry: Poetry) {}
 
@@ -36,11 +39,16 @@ export class Poem implements OnInit {
 
   getRandomPoemByAuthor() {
     this.loading = true;
-    this.poetry.getRandomPoemByAuthor(this.getRandomAuthor()).subscribe({
+    const chosenAuthor = this.getRandomAuthor();
+    this.author = chosenAuthor; 
+    this.poetry.getRandomPoemByAuthor(chosenAuthor).subscribe({
       next: (data) => {
         if (data && data.length > 0) {
           const randomIndex = Math.floor(Math.random() * data.length);
           this.poem = data[randomIndex];
+          if (this.poem?.author) {
+            this.author = this.poem.author;
+          }
         }
         this.loading = false;
       },
@@ -49,5 +57,9 @@ export class Poem implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  submitInput() {
+    console.log('Submitted input:', this.userInput);
   }
 }
