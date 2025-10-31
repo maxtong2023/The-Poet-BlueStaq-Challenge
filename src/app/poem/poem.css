@@ -1,0 +1,34 @@
+.poem-container {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-family: 'Courier New', sans-serif;
+
+}
+
+.poem-lines {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ece6d0;
+    font-family: 'Courier New', sans-serif;
+}
+
+.guessing {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ece6d0;
+    font-family: 'Courier New', sans-serif;
+}
+
+.guessing input {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    font-family: 'Courier New', sans-serif;
+}
+

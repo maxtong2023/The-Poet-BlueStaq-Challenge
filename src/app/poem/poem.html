@@ -11,12 +11,11 @@
     <input 
       type="text" 
       [(ngModel)]="userInput" 
-      placeholder="Type something..."
+      placeholder="Guess the author..."
       (keyup.enter)="submitInput()" />
     <p>You typed: {{ userInput }}</p>
   </div>
   
-  <button (click)="getRandomPoemByAuthor()">Get Another Poem</button>
 </div>
 
 <div *ngIf="!loading && !poem">
