@@ -1,5 +1,9 @@
 # Poetdle
 
+Thank you BlueStaq for considering me for the software engineering intern position! I deployed to Github pages so you can view the site here: https://maxtong2023.github.io/The-Poet-BlueStaq-Challenge/
+
+Thank you again and I look forward to hearing back from you!
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
 
 ## Development server
