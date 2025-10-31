@@ -38,6 +38,7 @@ export class Poem implements OnInit {
   }
 
   getRandomPoemByAuthor() {
+    this.poem = null; // clear the old poem so they don't stack
     this.loading = true;
     const chosenAuthor = this.getRandomAuthor();
     this.author = chosenAuthor; 
@@ -60,6 +61,15 @@ export class Poem implements OnInit {
   }
 
   submitInput() {
-    console.log('Submitted input:', this.userInput);
+    if(this.author.toLowerCase() != this.userInput.toLowerCase()){
+      console.log('Incorrect');
+      alert('Wrong! The correct answer is ' + this.author);
+    } else {
+      console.log('Correct');
+      alert('Correct! The answer was ' + this.author + '!');
+    }
+    
+    this.userInput = '';
+    this.getRandomPoemByAuthor();
   }
 }
