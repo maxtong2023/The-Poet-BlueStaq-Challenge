@@ -17,6 +17,8 @@ export class Poem implements OnInit {
   authors: string[] = [];
   userInput: string = '';
   author: string = '';
+  score: number = 0;
+  guesses: number = 0;
 
   constructor(private poetry: Poetry, private router: Router) {}
 
@@ -69,9 +71,12 @@ export class Poem implements OnInit {
     if(this.author.toLowerCase() != this.userInput.toLowerCase()){
       console.log('Incorrect');
       alert('Wrong! The correct answer is ' + this.author);
+      this.guesses++;
     } else {
       console.log('Correct');
       alert('Correct! The answer was ' + this.author + '!');
+      this.score++;
+      this.guesses++;
     }
     
     this.userInput = '';

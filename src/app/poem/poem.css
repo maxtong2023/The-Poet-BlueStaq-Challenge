@@ -23,7 +23,22 @@
   border-radius: 8px;
   padding: 10px 25px;
   cursor: pointer;
+  font-family: 'Courier New', sans-serif;
+  font-size: 12px;
   transition: 0.2s;}
+
+.poem-header p {
+    position: absolute;
+    right: 0;
+    background-color: #cbbb82;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-family: 'Courier New', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;}
 
 
 .poem-container {
